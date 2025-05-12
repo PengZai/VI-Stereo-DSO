@@ -1,6 +1,5 @@
 #!/bin/bash
 #usage: python xxx.py file_name
-dataname="MH_01_easy"
 project_dire="/root/vi-stereo-dso"
 #dataname="MH_02_easy"
 #dataname="MH_03_medium"
@@ -14,12 +13,12 @@ project_dire="/root/vi-stereo-dso"
 #dataname="V1_03_difficult"
     # run dso
      ./build/bin/dso_dataset \
- 	  files0=/root/datasets/Euroc_MAV/euroc-spark/${dataname}/mav0/cam0/data \
- 	  calib0=${project_dire}/calib/euroc/cam0.txt \
-	  imu_info=${project_dire}/calib/euroc/IMU_info.txt \
-	  groundtruth=/root/datasets/Euroc_MAV/euroc-spark/${dataname}/mav0/state_groundtruth_estimate0/data.csv \
-	  imudata=/root/datasets/Euroc_MAV/euroc-spark/${dataname}/mav0/imu0/data.csv \
-	  pic_timestamp=/root/datasets/Euroc_MAV/euroc-spark/${dataname}/mav0/cam0/data.csv \
+ 	  files0=/root/datasets2/BotanicGarden/1018-00/1018_00_img10hz600p/left_gray \
+ 	  calib0=${project_dire}/calib/botanic_garden/cam0.txt \
+	  imu_info=${project_dire}/calib/botanic_garden/IMU_info.txt \
+	  groundtruth=/root/datasets2/BotanicGarden/1018-00/1018_00_img10hz600p/gt/gt_data.csv \
+	  imudata="/root/datasets2/BotanicGarden/1018-00/1018_00_img10hz600p/Xsens/imu_data.csv "\
+	  pic_timestamp=/root/datasets2/BotanicGarden/1018-00/1018_00_img10hz600p/_dalsa_gray_left_image_raw_pic_timestamps.csv \
  	  preset=0 mode=1 \
 	  quiet=1 nomt=1 \
           savefile_tail=nt_${dataname}\

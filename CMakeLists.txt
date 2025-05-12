@@ -5,8 +5,35 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 
 
-set(BUILD_TYPE Release)
+# set(BUILD_TYPE Release)
 #set(BUILD_TYPE RelWithDebInfo)
+
+# set(BUILD_TYPE Release)
+option(ENABLE_CMAKE_DEBUG "Enable detailed debug messages" ON)
+
+# flags
+add_definitions("-DENABLE_SSE")
+
+if(ENABLE_CMAKE_DEBUG)
+    # Debug or Release
+    set(CMAKE_BUILD_TYPE "Debug")
+	set(CMAKE_CXX_FLAGS
+   "${SSE_FLAGS} -g3 -g -std=c++0x"
+	#   "${SSE_FLAGS} -O3 -g -std=c++0x -fno-omit-frame-pointer"
+	)
+else()
+    set(CMAKE_BUILD_TYPE "Release")
+	set(CMAKE_CXX_FLAGS
+   "${SSE_FLAGS} -O3 -g -std=c++0x -march=native"
+	#   "${SSE_FLAGS} -O3 -g -std=c++0x -fno-omit-frame-pointer"
+	)
+endif()
+
+# # Enable compile optimizations
+# set(CMAKE_CXX_FLAGS_RELEASE "-O3 -fsee -fomit-frame-pointer -fno-signed-zeros -fno-math-errno -funroll-loops")
+
+# # Enable debug flags (use if you want to debug in gdb)
+# set(CMAKE_CXX_FLAGS_DEBUG "-g3 -Wall -Wuninitialized -fno-omit-frame-pointer")
 
 set(EXECUTABLE_OUTPUT_PATH bin)
 set(LIBRARY_OUTPUT_PATH lib)
@@ -25,12 +52,6 @@ find_package(OpenCV QUIET)
 find_package(Glog REQUIRED)
 include_directories(${Glog_INCLUDE_DIRS})
 
-# flags
-add_definitions("-DENABLE_SSE")
-set(CMAKE_CXX_FLAGS
-   "${SSE_FLAGS} -O3 -g -std=c++0x -march=native"
-#   "${SSE_FLAGS} -O3 -g -std=c++0x -fno-omit-frame-pointer"
-)
 
 if (MSVC)
      set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHsc")

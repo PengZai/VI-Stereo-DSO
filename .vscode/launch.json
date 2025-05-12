@@ -1,0 +1,75 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    {
+        "name": "run_botanic_garden",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/bin/dso_dataset",
+        "args": [
+            "files0=/root/datasets2/BotanicGarden/1018-00/1018_00_img10hz600p/left_gray",
+            "files1=/root/datasets2/BotanicGarden/1018-00/1018_00_img10hz600p/right_gray",
+            "calib0=/root/vi-stereo-dso/calib/botanic_garden/cam0.txt",
+            "calib1=/root/vi-stereo-dso/calib/botanic_garden/cam1.txt",
+            "T_stereo=/root/vi-stereo-dso/calib/botanic_garden/T_C0C1.txt",
+            "imu_info=/root/vi-stereo-dso/calib/botanic_garden/IMU_info.txt",
+            "groundtruth=/root/datasets2/BotanicGarden/1018-00/1018_00_img10hz600p/gt/gt_data.csv",
+            "imudata=/root/datasets2/BotanicGarden/1018-00/1018_00_img10hz600p/Xsens/imu_data.csv",
+            "pic_timestamp=/root/datasets2/BotanicGarden/1018-00/1018_00_img10hz600p/_dalsa_gray_left_image_raw_pic_timestamps.csv",
+            "pic_timestamp1=/root/datasets2/BotanicGarden/1018-00/1018_00_img10hz600p/_dalsa_gray_right_image_raw_pic_timestamps.csv",
+            "preset=0",
+            "mode=1",
+            "quiet=1",
+            "nomt=1",
+            "savefile_tail=nt_1018_00_img10hz600p",
+            "use_stereo=1",
+            "imu_weight=6",
+            "imu_weight_tracker=0.6",
+            "stereo_weight=0.5"
+
+        ],
+        "stopAtEntry": false,
+        "cwd": "${fileDirname}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+    },
+
+    {
+        "name": "run_euroc",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/bin/dso_dataset",
+        "args": [
+            "files0=/root/datasets/Euroc_MAV/euroc-spark/MH_01_easy/mav0/cam0/data",
+            "files1=/root/datasets/Euroc_MAV/euroc-spark/MH_01_easy/mav0/cam1/data",
+            "calib0=/root/vi-stereo-dso/calib/euroc/cam0.txt",
+            "calib1=/root/vi-stereo-dso/calib/euroc/cam1.txt",
+            "T_stereo=/root/vi-stereo-dso/calib/euroc/T_C0C1.txt",
+            "imu_info=/root/vi-stereo-dso/calib/euroc/IMU_info.txt",
+            "groundtruth=/root/datasets/Euroc_MAV/euroc-spark/MH_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+            "imudata=/root/datasets/Euroc_MAV/euroc-spark/MH_01_easy/mav0/imu0/data.csv",
+            "pic_timestamp=/root/datasets/Euroc_MAV/euroc-spark/MH_01_easy/mav0/cam0/data.csv",
+            "pic_timestamp1=/root/datasets/Euroc_MAV/euroc-spark/MH_01_easy/mav0/cam1/data.csv",
+            "preset=0",
+            "mode=1",
+            "quiet=1",
+            "nomt=1",
+            "savefile_tail=nt_MH_01_easy",
+            "use_stereo=1",
+            "imu_weight=6",
+            "imu_weight_tracker=0.6",
+            "stereo_weight=0.5"
+
+        ],
+        "stopAtEntry": false,
+        "cwd": "${fileDirname}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+    }
+    ]
+}
